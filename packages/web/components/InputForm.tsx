@@ -10,23 +10,22 @@ import {
 
 const STORAGE_KEY = 'ab-predictor-form';
 
-// TODO: Remove prefilled test data before production
 const INITIAL_STATE: FormInput = {
-  productName: 'Gong',
-  productDescription: 'AI-powered revenue intelligence platform that analyzes sales calls to surface why deals are won or lost. Gives sales leaders visibility into what top reps do differently.',
-  productCategory: 'Sales & Revenue Intelligence',
-  targetAudience: 'VP of Sales at mid-market SaaS companies with 50+ sales reps, frustrated with no visibility into call quality and deal risk',
-  companySize: 'Mid-market (201-1000)',
-  competitors: 'Chorus.ai, Clari, manual call reviews',
-  pricingModel: '$100/user/month, annual contract',
-  headlineA: 'Stop guessing why deals die',
-  supportingCopyA: 'Every lost deal has a moment where it slipped away. Gong captures every call, flags the risk signals your managers miss, and shows you exactly what top closers do differently. No more post-mortems based on gut feel.',
-  approachLabelA: 'Pain-led',
-  headlineB: 'AI-powered call analytics for revenue teams',
-  supportingCopyB: 'Record, transcribe, and analyze every sales conversation automatically. Get real-time coaching alerts, deal risk scores, and competitive mention tracking across your entire team.',
-  approachLabelB: 'Feature-led',
-  email: 'davitshadunts@gmail.com',
-  name: 'Hayk Kocharyan',
+  productName: '',
+  productDescription: '',
+  productCategory: '',
+  targetAudience: '',
+  companySize: '',
+  competitors: '',
+  pricingModel: '',
+  headlineA: '',
+  supportingCopyA: '',
+  approachLabelA: '',
+  headlineB: '',
+  supportingCopyB: '',
+  approachLabelB: '',
+  email: '',
+  name: '',
 };
 
 type ValidationErrors = Partial<Record<keyof FormInput, string>>;
