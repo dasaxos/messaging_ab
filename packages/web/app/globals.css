@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Berkeley+Mono&display=swap');
+
+body {
+  background-color: #131314;
+  color: #e5e2e3;
+  font-family: 'Inter', sans-serif;
+}
+
+.glass-panel {
+  background: rgba(53, 52, 54, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+.mono-label {
+  font-family: 'Berkeley Mono', monospace;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #adc6ff !important;
+}
+
+.step-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
+  }
+}
+
+.progress-glow {
+  box-shadow: 0 0 15px rgba(77, 142, 255, 0.3);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

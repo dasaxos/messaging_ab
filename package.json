@@ -1,0 +1,13 @@
+{
+  "name": "messaging-ab-predictor",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@ab-predictor/web",
+    "build": "npm run build --workspace=@ab-predictor/web",
+    "worker": "npm run dev --workspace=@ab-predictor/worker"
+  }
+}

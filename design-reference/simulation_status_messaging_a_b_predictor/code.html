@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Simulation Status | Messaging A/B Predictor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Berkeley+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-low": "#1c1b1c",
+                        "on-tertiary": "#3c0091",
+                        "on-background": "#e5e2e3",
+                        "on-secondary-fixed": "#3e0022",
+                        "on-secondary-fixed-variant": "#8c0053",
+                        "on-error-container": "#ffdad6",
+                        "secondary": "#ffb0cd",
+                        "tertiary-fixed-dim": "#d0bcff",
+                        "surface-tint": "#adc6ff",
+                        "surface-dim": "#131314",
+                        "on-tertiary-fixed": "#23005c",
+                        "tertiary": "#d0bcff",
+                        "on-error": "#690005",
+                        "surface-variant": "#353436",
+                        "tertiary-fixed": "#e9ddff",
+                        "surface-container-highest": "#353436",
+                        "primary": "#adc6ff",
+                        "outline": "#8c909f",
+                        "on-surface": "#e5e2e3",
+                        "surface-container-lowest": "#0e0e0f",
+                        "inverse-on-surface": "#313031",
+                        "primary-container": "#4d8eff",
+                        "secondary-container": "#aa0266",
+                        "on-tertiary-fixed-variant": "#5516be",
+                        "on-secondary": "#640039",
+                        "on-tertiary-container": "#340080",
+                        "inverse-primary": "#005ac2",
+                        "error-container": "#93000a",
+                        "on-primary": "#002e6a",
+                        "primary-fixed-dim": "#adc6ff",
+                        "outline-variant": "#424754",
+                        "secondary-fixed": "#ffd9e4",
+                        "secondary-fixed-dim": "#ffb0cd",
+                        "on-secondary-container": "#ffbad3",
+                        "on-surface-variant": "#c2c6d6",
+                        "surface-container-high": "#2a2a2b",
+                        "surface-container": "#201f20",
+                        "tertiary-container": "#a078ff",
+                        "on-primary-fixed-variant": "#004395",
+                        "on-primary-fixed": "#001a42",
+                        "background": "#131314",
+                        "surface": "#131314",
+                        "primary-fixed": "#d8e2ff",
+                        "on-primary-container": "#00285d",
+                        "inverse-surface": "#e5e2e3",
+                        "surface-bright": "#3a393a",
+                        "error": "#ffb4ab"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Berkeley Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .5; transform: scale(1.1); }
+        }
+        .progress-glow {
+            box-shadow: 0 0 15px rgba(77, 142, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container min-h-screen">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#131314] flex justify-between items-center w-full px-6 h-14">
+<div class="text-lg font-bold tracking-tighter text-[#adc6ff]">
+            Messaging A/B Predictor
+        </div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-[#201f20] transition-colors duration-200 p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[#c2c6d6] text-sm" data-icon="help">help</span>
+</button>
+<button class="hover:bg-[#201f20] transition-colors duration-200 p-2 rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[#c2c6d6] text-sm" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-20 px-6 max-w-[600px] mx-auto flex flex-col items-center">
+<!-- Status Header -->
+<section class="w-full text-center mb-12">
+<h1 class="text-3xl md:text-4xl font-bold tracking-tight mb-2 text-on-surface">
+                Your simulation is running
+            </h1>
+<p class="font-label text-sm uppercase tracking-widest text-on-surface-variant mb-8">
+                ~14 min remaining
+            </p>
+<!-- Progress Bar -->
+<div class="relative w-full h-1 bg-surface-container rounded-full overflow-hidden">
+<div class="absolute top-0 left-0 h-full w-[40%] bg-gradient-to-r from-primary to-secondary progress-glow"></div>
+</div>
+</section>
+<!-- Vertical Timeline -->
+<section class="w-full space-y-0 relative">
+<!-- Step 1: Preparing market context -->
+<div class="flex gap-6 pb-8 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center border-2 border-primary">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="w-[1px] h-full bg-primary absolute top-6 left-3"></div>
+</div>
+<div class="flex-1 pt-0.5">
+<div class="flex justify-between items-start">
+<span class="text-on-surface font-medium">Preparing market context</span>
+<span class="font-label text-[11px] text-on-surface-variant">1m 23s</span>
+</div>
+</div>
+</div>
+<!-- Step 2: Building knowledge graph -->
+<div class="flex gap-6 pb-8 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center border-2 border-primary">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="w-[1px] h-full bg-primary absolute top-6 left-3"></div>
+</div>
+<div class="flex-1 pt-0.5">
+<div class="flex justify-between items-start">
+<span class="text-on-surface font-medium">Building knowledge graph</span>
+<span class="font-label text-[11px] text-on-surface-variant">2m 05s</span>
+</div>
+</div>
+</div>
+<!-- Step 3: Creating buyer personas (A) -->
+<div class="flex gap-6 pb-8 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center border-2 border-primary">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="w-[1px] h-full bg-primary absolute top-6 left-3"></div>
+</div>
+<div class="flex-1 pt-0.5">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<span class="text-on-surface font-medium">Creating buyer personas (A)</span>
+</div>
+<span class="font-label text-[11px] text-on-surface-variant">1m 45s</span>
+</div>
+</div>
+</div>
+<!-- Step 4: Simulating market reaction (A) -->
+<div class="flex gap-6 pb-8 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-primary-container flex items-center justify-center border-2 border-primary">
+<span class="material-symbols-outlined text-[14px] text-white" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<div class="w-[1px] h-full bg-primary absolute top-6 left-3"></div>
+</div>
+<div class="flex-1 pt-0.5">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<span class="text-on-surface font-medium">Simulating market reaction (A)</span>
+</div>
+<span class="font-label text-[11px] text-on-surface-variant">3m 12s</span>
+</div>
+</div>
+</div>
+<!-- Step 5: Analyzing results (A) [ACTIVE] -->
+<div class="flex gap-6 pb-8 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary step-pulse">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+</div>
+<div class="w-[1px] h-full border-l border-dashed border-outline-variant absolute top-6 left-3"></div>
+</div>
+<div class="flex-1 pt-0.5">
+<div class="flex justify-between items-center">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-primary"></div>
+<span class="text-primary font-bold">Analyzing results (A)</span>
+</div>
+<span class="font-label text-[11px] text-primary">2m 41s...</span>
+</div>
+</div>
+</div>
+<!-- Step 6: Creating buyer personas (B) [PENDING] -->
+<div class="flex gap-6 pb-8 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-surface-container flex items-center justify-center border-2 border-outline-variant">
+</div>
+<div class="w-[1px] h-full border-l border-dashed border-outline-variant absolute top-6 left-3"></div>
+</div>
+<div class="flex-1 pt-0.5">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary opacity-40"></div>
+<span class="text-on-surface-variant">Creating buyer personas (B)</span>
+</div>
+</div>
+</div>
+<!-- Step 7: Simulating market reaction (B) -->
+<div class="flex gap-6 pb-8 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-surface-container flex items-center justify-center border-2 border-outline-variant">
+</div>
+<div class="w-[1px] h-full border-l border-dashed border-outline-variant absolute top-6 left-3"></div>
+</div>
+<div class="flex-1 pt-0.5">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary opacity-40"></div>
+<span class="text-on-surface-variant">Simulating market reaction (B)</span>
+</div>
+</div>
+</div>
+<!-- Step 8: Analyzing results (B) -->
+<div class="flex gap-6 pb-8 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-surface-container flex items-center justify-center border-2 border-outline-variant">
+</div>
+<div class="w-[1px] h-full border-l border-dashed border-outline-variant absolute top-6 left-3"></div>
+</div>
+<div class="flex-1 pt-0.5">
+<div class="flex items-center gap-2">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary opacity-40"></div>
+<span class="text-on-surface-variant">Analyzing results (B)</span>
+</div>
+</div>
+</div>
+<!-- Step 9: Comparing A vs B -->
+<div class="flex gap-6 pb-8 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-surface-container flex items-center justify-center border-2 border-outline-variant">
+</div>
+<div class="w-[1px] h-full border-l border-dashed border-outline-variant absolute top-6 left-3"></div>
+</div>
+<div class="flex-1 pt-0.5">
+<span class="text-on-surface-variant">Comparing A vs B</span>
+</div>
+</div>
+<!-- Step 10: Done! -->
+<div class="flex gap-6 relative">
+<div class="flex flex-col items-center">
+<div class="z-10 w-6 h-6 rounded-full bg-surface-container flex items-center justify-center border-2 border-outline-variant">
+</div>
+</div>
+<div class="flex-1 pt-0.5">
+<span class="text-on-surface-variant">Done!</span>
+</div>
+</div>
+</section>
+<!-- Bottom Footer Info -->
+<section class="w-full mt-16 flex flex-col items-center">
+<div class="w-full bg-surface-container-low p-6 rounded-xl text-center mb-6">
+<p class="text-on-surface text-sm">
+                    We'll email you at <span class="font-label text-primary">sarah@acme.com</span> when results are ready.
+                </p>
+</div>
+<p class="text-on-surface-variant text-sm mb-8">
+                You can safely close this tab.
+            </p>
+<button class="text-error font-label text-[11px] uppercase tracking-widest hover:text-white transition-colors duration-200">
+                Cancel simulation
+            </button>
+</section>
+</main>
+<!-- Side Decoration (Ambient Visuals) -->
+<div class="fixed top-0 right-0 w-[400px] h-full overflow-hidden pointer-events-none opacity-20 -z-10">
+<div class="absolute top-[20%] right-[-100px] w-full h-[600px] bg-gradient-to-br from-primary/10 via-transparent to-transparent blur-[120px]"></div>
+<div class="absolute bottom-[10%] right-[-100px] w-full h-[600px] bg-gradient-to-tr from-secondary/5 via-transparent to-transparent blur-[120px]"></div>
+</div>
+</body></html>

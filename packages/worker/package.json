@@ -1,0 +1,26 @@
+{
+  "name": "@ab-predictor/worker",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "tsx watch index.ts",
+    "start": "tsx index.ts"
+  },
+  "dependencies": {
+    "@ab-predictor/shared": "*",
+    "bullmq": "^5.0.0",
+    "ioredis": "^5.4.0",
+    "dotenv": "^16.4.0",
+    "@libsql/client": "^0.14.0",
+    "better-sqlite3": "^11.0.0",
+    "drizzle-orm": "^0.35.0",
+    "openai": "^4.70.0",
+    "resend": "^4.0.0",
+    "tsx": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.5.0"
+  }
+}

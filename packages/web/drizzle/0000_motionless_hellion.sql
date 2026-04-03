@@ -1,0 +1,22 @@
+CREATE TABLE `jobs` (
+	`id` text PRIMARY KEY NOT NULL,
+	`status` text NOT NULL,
+	`created_at` integer NOT NULL,
+	`updated_at` integer NOT NULL,
+	`completed_at` integer,
+	`email` text NOT NULL,
+	`name` text,
+	`form_input` text NOT NULL,
+	`project_id` text,
+	`graph_id` text,
+	`simulation_id_a` text,
+	`simulation_id_b` text,
+	`report_id_a` text,
+	`report_id_b` text,
+	`current_stage` text,
+	`results_a` text,
+	`results_b` text,
+	`comparison` text,
+	`error_message` text,
+	`error_stage` text
+);

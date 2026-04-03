@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Berkeley+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "outline": "#8c909f",
+                        "surface-container-low": "#1c1b1c",
+                        "outline-variant": "#424754",
+                        "surface-container-highest": "#353436",
+                        "surface-container": "#201f20",
+                        "surface-container-high": "#2a2a2b",
+                        "surface-tint": "#adc6ff",
+                        "primary": "#adc6ff",
+                        "surface": "#131314",
+                        "primary-container": "#4d8eff",
+                        "on-surface": "#e5e2e3",
+                        "on-surface-variant": "#c2c6d6",
+                        "surface-container-lowest": "#0e0e0f",
+                        "background": "#131314",
+                        "secondary": "#ffb0cd",
+                        "secondary-container": "#aa0266"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Berkeley Mono", "monospace"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0A0A0B;
+            color: #e5e2e3;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(32, 31, 32, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .mono {
+            font-family: 'Berkeley Mono', monospace;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+            line-height: 1;
+        }
+        .active-fill {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-[#0A0A0B] text-on-surface antialiased pb-20">
+<!-- Top Navigation Anchor -->
+<nav class="flex justify-between items-center w-full px-6 py-3 sticky top-0 z-50 bg-[#131314] dark:bg-[#131314]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#adc6ff]">Predictor</span>
+<div class="hidden md:flex gap-6 items-center">
+<a class="font-['Inter'] font-medium tracking-tight text-sm text-[#adc6ff] border-b border-[#adc6ff] pb-1" href="#">Dashboard</a>
+<a class="font-['Inter'] font-medium tracking-tight text-sm text-[#c2c6d6] hover:text-[#f0f2f7] transition-colors" href="#">Analytics</a>
+<a class="font-['Inter'] font-medium tracking-tight text-sm text-[#c2c6d6] hover:text-[#f0f2f7] transition-colors" href="#">Templates</a>
+<a class="font-['Inter'] font-medium tracking-tight text-sm text-[#c2c6d6] hover:text-[#f0f2f7] transition-colors" href="#">Settings</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#201f20] rounded-full transition-all duration-200">
+<span class="material-symbols-outlined text-[#c2c6d6]">notifications</span>
+</button>
+<button class="p-2 hover:bg-[#201f20] rounded-full transition-all duration-200">
+<span class="material-symbols-outlined text-[#c2c6d6]">help</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="User profile" data-alt="close up of a professional user avatar with a soft neutral background and modern studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqATkkkT0KZFwVEG_SM8LVOyTTv112_m65nzacBVFNqjtyQu7RKphp6v9dvFf-8P6OWZlBy15bLwitZRypCQ0u4oilZHNtrmBAn2cFJShCmtJLsjyRRKT2tm9_TADzjBzM-g3lhuCDK7ciHBX6QIYjNVYshKoQOMj3E9JJ3ZLTlA4x1khFA-wF9nMFiSOZZ-f2bpQ2VgK1vjn7NOd9drU0p91f31OpFbUwSi0XS-66Lw_4PbjvTb8MTGmWBeIn_Ns0Nnuz5xmwPd0"/>
+</div>
+</div>
+</nav>
+<main class="max-w-[1000px] mx-auto px-6 py-12">
+<!-- Winner Announcement Hero -->
+<header class="mb-16 text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary mb-6">
+<span class="material-symbols-outlined text-[18px] active-fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="mono text-[11px] uppercase tracking-widest font-bold">High Confidence Result (98.4%)</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">Message A outperformed Message B</h1>
+<p class="text-on-surface-variant max-w-2xl mx-auto text-lg leading-relaxed">
+                The value-led narrative significantly reduced switching cost friction, leading to a 24% faster adoption velocity across the simulated enterprise segment.
+            </p>
+</header>
+<section class="grid md:grid-cols-2 gap-6 mb-16">
+<!-- Message A Card -->
+<div class="group relative overflow-hidden p-8 rounded-xl bg-surface-container border-l-4 border-primary transition-all hover:bg-surface-container-high">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="mono text-[10px] text-primary uppercase tracking-widest font-bold mb-1 block">Variant A</span>
+<h3 class="text-2xl font-bold">Value-led</h3>
+</div>
+<div class="bg-primary/20 text-primary px-3 py-1 rounded text-sm font-bold">WINNER</div>
+</div>
+<p class="text-on-surface-variant mb-6 leading-relaxed italic">"Transform your operational efficiency with our unified architectural layer, reducing technical debt while scaling output."</p>
+<div class="flex items-center gap-4 text-sm mono font-medium">
+<span class="flex items-center gap-1 text-primary"><span class="material-symbols-outlined text-sm">trending_up</span> +18% Conv.</span>
+<span class="flex items-center gap-1 text-on-surface-variant opacity-60"><span class="material-symbols-outlined text-sm">bolt</span> 3.2s Latency</span>
+</div>
+</div>
+<!-- Message B Card -->
+<div class="group relative overflow-hidden p-8 rounded-xl bg-surface-container border-l-4 border-secondary transition-all hover:bg-surface-container-high">
+<div class="flex justify-between items-start mb-6">
+<div>
+<span class="mono text-[10px] text-secondary uppercase tracking-widest font-bold mb-1 block">Variant B</span>
+<h3 class="text-2xl font-bold">Feature-led</h3>
+</div>
+<div class="bg-surface-container-highest text-on-surface-variant px-3 py-1 rounded text-sm font-bold">CHALLENGER</div>
+</div>
+<p class="text-on-surface-variant mb-6 leading-relaxed italic">"Access 50+ modular components, real-time analytics dashboards, and automated deployment hooks out of the box."</p>
+<div class="flex items-center gap-4 text-sm mono font-medium">
+<span class="flex items-center gap-1 text-on-surface-variant opacity-60"><span class="material-symbols-outlined text-sm">stabilization</span> Base Level</span>
+<span class="flex items-center gap-1 text-on-surface-variant opacity-60"><span class="material-symbols-outlined text-sm">bolt</span> 4.1s Latency</span>
+</div>
+</div>
+</section>
+<!-- Adoption Velocity Chart -->
+<section class="mb-16 bg-surface-container rounded-xl p-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-4">
+<div>
+<h2 class="text-xl font-bold tracking-tight">Adoption Velocity Chart</h2>
+<p class="text-sm text-on-surface-variant">Comparative simulation rounds (n=12,000 agents)</p>
+</div>
+<div class="flex gap-4 mono text-[11px] uppercase tracking-tighter">
+<div class="flex items-center gap-2"><div class="w-3 h-3 bg-primary rounded-full"></div> Message A</div>
+<div class="flex items-center gap-2"><div class="w-3 h-3 bg-secondary rounded-full"></div> Message B</div>
+</div>
+</div>
+<div class="relative h-64 w-full flex items-end justify-between gap-1 pb-6">
+<!-- Simple representative SVG for the line chart since we can't use dynamic JS libs -->
+<svg class="absolute inset-0 w-full h-full overflow-visible" preserveaspectratio="none" viewbox="0 0 1000 256">
+<!-- Message A Line -->
+<path d="M0,240 L125,210 L250,160 L375,120 L500,80 L625,50 L750,30 L875,20 L1000,10" fill="none" stroke="#adc6ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<!-- Message B Line -->
+<path d="M0,245 L125,230 L250,210 L375,190 L500,180 L625,170 L750,165 L875,160 L1000,158" fill="none" stroke="#ffb0cd" stroke-dasharray="8 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+</svg>
+<div class="absolute bottom-0 w-full flex justify-between px-2 mono text-[10px] text-on-surface-variant/40">
+<span>Round 1</span>
+<span>Round 2</span>
+<span>Round 3</span>
+<span>Round 4</span>
+<span>Round 5</span>
+<span>Round 6</span>
+<span>Round 7</span>
+<span>Round 8</span>
+</div>
+</div>
+</section>
+<!-- Objection Breakdown & WOM Metrics -->
+<div class="grid lg:grid-cols-3 gap-8 mb-16">
+<div class="lg:col-span-2 bg-surface-container rounded-xl p-8">
+<h2 class="text-xl font-bold tracking-tight mb-8">Objection Breakdown</h2>
+<div class="space-y-6">
+<!-- Pricing -->
+<div>
+<div class="flex justify-between text-xs mono uppercase mb-2">
+<span>Pricing</span>
+<span class="text-on-surface-variant">A: Low Risk / B: High Risk</span>
+</div>
+<div class="flex gap-1 h-3">
+<div class="h-full bg-primary rounded-sm" style="width: 15%;"></div>
+<div class="h-full bg-secondary opacity-30 rounded-sm" style="width: 75%;"></div>
+</div>
+</div>
+<!-- Trust -->
+<div>
+<div class="flex justify-between text-xs mono uppercase mb-2">
+<span>Trust</span>
+<span class="text-on-surface-variant">A: Moderate / B: Moderate</span>
+</div>
+<div class="flex gap-1 h-3">
+<div class="h-full bg-primary rounded-sm" style="width: 45%;"></div>
+<div class="h-full bg-secondary opacity-60 rounded-sm" style="width: 42%;"></div>
+</div>
+</div>
+<!-- Switching Cost -->
+<div>
+<div class="flex justify-between text-xs mono uppercase mb-2">
+<span>Switching Cost</span>
+<span class="text-on-surface-variant">A: Significant Delta</span>
+</div>
+<div class="flex gap-1 h-3">
+<div class="h-full bg-primary rounded-sm" style="width: 20%;"></div>
+<div class="h-full bg-secondary opacity-90 rounded-sm" style="width: 85%;"></div>
+</div>
+</div>
+<!-- Relevance -->
+<div>
+<div class="flex justify-between text-xs mono uppercase mb-2">
+<span>Relevance</span>
+<span class="text-on-surface-variant">A: High Fit</span>
+</div>
+<div class="flex gap-1 h-3">
+<div class="h-full bg-primary rounded-sm" style="width: 90%;"></div>
+<div class="h-full bg-secondary opacity-40 rounded-sm" style="width: 30%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Word of Mouth Metrics -->
+<div class="flex flex-col gap-4">
+<div class="bg-surface-container p-6 rounded-xl flex items-center justify-between">
+<div>
+<span class="mono text-[10px] text-on-surface-variant uppercase tracking-widest block mb-1">Shares</span>
+<div class="text-2xl font-bold">1,240 <span class="text-primary text-sm font-label ml-1">↑ 12%</span></div>
+</div>
+<span class="material-symbols-outlined text-primary/30 text-4xl">share</span>
+</div>
+<div class="bg-surface-container p-6 rounded-xl flex items-center justify-between">
+<div>
+<span class="mono text-[10px] text-on-surface-variant uppercase tracking-widest block mb-1">Recommendations</span>
+<div class="text-2xl font-bold">892 <span class="text-primary text-sm font-label ml-1">↑ 28%</span></div>
+</div>
+<span class="material-symbols-outlined text-primary/30 text-4xl">thumb_up</span>
+</div>
+<div class="bg-surface-container p-6 rounded-xl flex items-center justify-between">
+<div>
+<span class="mono text-[10px] text-on-surface-variant uppercase tracking-widest block mb-1">Warnings</span>
+<div class="text-2xl font-bold">45 <span class="text-primary text-sm font-label ml-1">↓ 60%</span></div>
+</div>
+<span class="material-symbols-outlined text-secondary/30 text-4xl">report</span>
+</div>
+</div>
+</div>
+<!-- Agent Quotes -->
+<section class="mb-16">
+<h2 class="text-xl font-bold tracking-tight mb-8">Synthesis of Agent Feedback</h2>
+<div class="flex gap-6 overflow-x-auto pb-6 -mx-4 px-4 no-scrollbar">
+<!-- Quote 1 -->
+<div class="min-w-[340px] bg-surface-container-low p-6 rounded-xl border border-white/5">
+<div class="flex items-center gap-3 mb-4">
+<img alt="Sarah J." class="w-10 h-10 rounded-full bg-surface-container-highest" data-alt="professional studio portrait of a mid-30s female tech executive with soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJYvNW9NWkn6iTu5MYAomPjrNEKrxAuZuSeIHdd2zUQAIo4DHszWrWRL-esTZGrbOYkNMPwVZZfi6DsyPqCoQHdnUgQD0kW-U7Tu4SPLzvreZ2X8x72rVrHoI4TFRZh4mGMjlAhW2L75CUgHz9iiND5yzDcMAP06v_I_jlzuuxw7_S9Os87y6M7s2R4-0kAhd1KBCMb1rkFeaAAgAWKaA8LON_RxN7nxCT1R810pfeROWFB2ri6-jFrEC7WtAOVrVWRXtVq4MPqhM"/>
+<div>
+<div class="font-bold text-sm">Sarah Jenkins</div>
+<div class="mono text-[10px] text-on-surface-variant uppercase tracking-widest">CTO, Veridux</div>
+</div>
+</div>
+<p class="text-sm leading-relaxed mb-6 italic">"Message A actually addresses the 'why' behind the complexity. It feels like a partner talking, not a vendor listing specs."</p>
+<div class="flex justify-between items-center">
+<span class="px-2 py-0.5 rounded bg-green-900/30 text-green-400 text-[10px] mono font-bold uppercase tracking-widest">Positive</span>
+<span class="mono text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary">A</span>
+</div>
+</div>
+<!-- Quote 2 -->
+<div class="min-w-[340px] bg-surface-container-low p-6 rounded-xl border border-white/5">
+<div class="flex items-center gap-3 mb-4">
+<img alt="Marcus T." class="w-10 h-10 rounded-full bg-surface-container-highest" data-alt="close-up portrait of a thoughtful young male software engineer in a dark workspace with purple ambient light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_h-FnHnwFIqcQKiY2An6gdUWOr-iIVZwzOc0MGeTJzSxKPe6vY_Ue_vdkyWtuHvxuDhLG8rEz1hF4qoWXp1fo0tjz-x3OOTm_68HqCyWWsjcxTZPMuBsC18xBeHmD-q0BnT-GCRm6lWFXpBDMOip__6OZ27xwOYfcouk6aumnablbyP3GVwFVgi4lCpw5VS1GshY2Nda93TZO-xXNjXbcdmByzvEjbNwX_6V3KhahBxt5eEVeTfj-dJm_667z5TXQEGHtFZgzZqg"/>
+<div>
+<div class="font-bold text-sm">Marcus Thorne</div>
+<div class="mono text-[10px] text-on-surface-variant uppercase tracking-widest">Lead Dev, Orbit</div>
+</div>
+</div>
+<p class="text-sm leading-relaxed mb-6 italic">"I like the feature list in B, but I don't see how it fits into our existing stack. A's focus on technical debt is much more relevant."</p>
+<div class="flex justify-between items-center">
+<span class="px-2 py-0.5 rounded bg-yellow-900/30 text-yellow-400 text-[10px] mono font-bold uppercase tracking-widest">Neutral</span>
+<span class="mono text-[10px] px-2 py-0.5 rounded bg-secondary/20 text-secondary">B</span>
+</div>
+</div>
+<!-- Quote 3 -->
+<div class="min-w-[340px] bg-surface-container-low p-6 rounded-xl border border-white/5">
+<div class="flex items-center gap-3 mb-4">
+<img alt="Elena G." class="w-10 h-10 rounded-full bg-surface-container-highest" data-alt="modern portrait of a professional woman wearing glasses in a minimalist architectural setting with bright window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOcCYMPwkoPeuSjmCpWbNNJ03fx-_H8fF3vklbSH0rlu9Ap6rTovdi7lfoHBIa4GVSDUl-NdtsT9uZFbNYTdSEy3I2muNBh72vdf2Qrsunw6MUNh5InOeCQV2kVgkt9tup2CphRBRwOKbelPVcQBLJL0R2dHUQrDVZkuxsrN2jn6mVQ3d6VGOTxlPwl_GkTj6px9PXezQWKP0DzxMhTZI6MbWjw7KXT1avzDA4JaxV2js__kVG1et4IWbqMCA9CIxDsonfh6O_MXE"/>
+<div>
+<div class="font-bold text-sm">Elena Garcia</div>
+<div class="mono text-[10px] text-on-surface-variant uppercase tracking-widest">Product Head, Nexus</div>
+</div>
+</div>
+<p class="text-sm leading-relaxed mb-6 italic">"The value-led approach makes it easier to sell internally. We are focused on outcomes now, not just tools."</p>
+<div class="flex justify-between items-center">
+<span class="px-2 py-0.5 rounded bg-green-900/30 text-green-400 text-[10px] mono font-bold uppercase tracking-widest">Positive</span>
+<span class="mono text-[10px] px-2 py-0.5 rounded bg-primary/20 text-primary">A</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Dominant Narrative -->
+<section class="grid md:grid-cols-2 gap-8 mb-16">
+<div class="bg-surface-container p-8 rounded-xl border border-primary/10">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary">psychology</span>
+<h3 class="font-bold text-lg">Variant A Narrative</h3>
+</div>
+<div class="space-y-4 mb-8">
+<p class="text-sm leading-relaxed text-on-surface-variant">The narrative centers on **Structural Efficiency** and **Future-Proofing**. Agents perceived this as a strategic investment rather than a tactical expense.</p>
+</div>
+<div class="p-4 rounded bg-surface-container-high border border-primary/20 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary active-fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-medium tracking-tight">Narrative aligned with enterprise buyer intent</span>
+</div>
+</div>
+<div class="bg-surface-container p-8 rounded-xl border border-white/5">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+<h3 class="font-bold text-lg">Variant B Narrative</h3>
+</div>
+<div class="space-y-4 mb-8">
+<p class="text-sm leading-relaxed text-on-surface-variant">The narrative centers on **Breadth of Tooling** and **Immediate Utility**. While appealing to developers, it failed to resonate with budget holders.</p>
+</div>
+<div class="p-4 rounded bg-surface-container-high border border-white/5 flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">info</span>
+<span class="text-xs font-medium tracking-tight text-on-surface-variant">Narrative misalignment detected in Round 4</span>
+</div>
+</div>
+</section>
+<!-- Key Insight Callout -->
+<section class="bg-gradient-to-br from-primary-container/20 to-surface-container p-1 rounded-xl mb-16">
+<div class="bg-surface-container-lowest p-8 rounded-[10px] flex flex-col md:flex-row gap-8 items-center">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl active-fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold mb-3 tracking-tight">Recommendation: Pivot to "Structural Value"</h3>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+                        Based on the 98% confidence score, we recommend shifting your Q3 marketing collateral to lead with the Message A narrative. Focus on the 'Unification' aspect which showed the lowest objection rates in simulated friction tests.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary-container px-5 py-2 rounded-lg font-bold text-sm transition-transform active:scale-95">Update Strategy</button>
+<button class="text-on-surface-variant hover:text-on-surface px-5 py-2 rounded-lg font-bold text-sm mono">View Full Log</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Actions -->
+<footer class="flex flex-col md:flex-row justify-between items-center py-8 border-t border-[#424754]/15">
+<div class="flex items-center gap-4 mb-6 md:mb-0">
+<button class="bg-on-surface text-background px-8 py-3 rounded-xl font-bold hover:opacity-90 transition-all flex items-center gap-2">
+                    Run another test <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="bg-surface-container-high text-on-surface px-8 py-3 rounded-xl font-bold hover:bg-surface-container-highest transition-all">
+                    Share results
+                </button>
+</div>
+<div class="flex flex-col items-center md:items-end gap-2">
+<div class="flex gap-4 mono text-[10px] uppercase tracking-widest text-[#c2c6d6]">
+<a class="hover:text-[#adc6ff] transition-all" href="#">Export CSV</a>
+<a class="hover:text-[#adc6ff] transition-all" href="#">Share Report</a>
+<a class="hover:text-[#adc6ff] transition-all" href="#">Documentation</a>
+<a class="hover:text-[#adc6ff] transition-all" href="#">Support</a>
+</div>
+<div class="mono text-[10px] text-[#424754] uppercase tracking-widest">© 2024 Technical Curator Labs</div>
+</div>
+</footer>
+</main>
+</body></html>
